@@ -1,20 +1,17 @@
-//icon button to mark all tasks as done.
-
-import React from 'react'
-import { FaCheck } from "react-icons/fa";
+import React from 'react';
+import { FaCheck } from 'react-icons/fa';
 
 function MarkAllDoneButton({ todos, setTodos }) {
-
-    const handleMarkAllDone = () => {
-        const updatedTodos = todos.map((todo) => ({ ...todos, completed: true }));
-        setTodos(updatedTodos);
-    };
+  const handleMarkAllDone = () => {
+    const updatedTodos = todos.map(todo => ({ ...todo, isComplete: true }));
+    setTodos(updatedTodos);
+  };
 
   return (
     <button onClick={handleMarkAllDone}>
-        <FaCheck />
+      <FaCheck />
     </button>
   );
 }
 
-export default MarkAllDoneButton
+export default MarkAllDoneButton;

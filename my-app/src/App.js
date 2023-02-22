@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import TodoList from './TodoList';
 import MarkAllDoneButton from './MarkAll';
@@ -7,11 +7,13 @@ import ClearCompleted from './ClearCompleted';
 
 function App() {
 
+  const [todos, setTodos] = useState([])
+
   return (
     <div className="todo-list">
       <TodoList />
       <FilterBar />
-      <ClearCompleted />
+      <ClearCompleted todos={todos} setTodos={setTodos} />
       <MarkAllDoneButton />
     </div>
   );
