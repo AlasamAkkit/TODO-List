@@ -1,0 +1,1 @@
+//filter bar: all, active, completed, Option to clear all completed tasks.
