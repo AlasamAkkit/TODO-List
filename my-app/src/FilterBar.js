@@ -16,6 +16,7 @@ function FilterBar({ todos, setFilter, filter }) {
                 key={index}
                 onClick={() => handleFilterChange(option)}
                 disabled={filter === option}
+                className={filter === option ? "selected" : ""}
             >
                 {option}
             </button>

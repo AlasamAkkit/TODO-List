@@ -6,17 +6,18 @@ import FilterBar from './FilterBar';
 import ClearCompleted from './ClearCompleted';
 
 function App() {
-
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState([]);
+  const [filter, setFilter] = useState("All");
 
   return (
     <div className="todo-list">
-      <TodoList />
-      <FilterBar />
+      <TodoList todos={todos} setTodos={setTodos} filter={filter} />
+      <FilterBar todos={todos} setFilter={setFilter} filter={filter} />
       <ClearCompleted todos={todos} setTodos={setTodos} />
-      <MarkAllDoneButton />
+      <MarkAllDoneButton todos={todos} setTodos={setTodos} />
     </div>
   );
 }
+
 
 export default App;
