@@ -40,6 +40,13 @@ function TodoList() {
         setTodos(updatedTodos);
     }
 
+    const toggleComplete = (id)  => {
+        setTodos((prev) => 
+            prev.map((todo) => 
+                todo.id === id ? {...todo, completed: !todo.completed } : todo)
+        )
+    }
+
 
   return (
     <div>
@@ -50,6 +57,7 @@ function TodoList() {
             completeTodo={completeTodo} 
             removeTodo={removeTodo} 
             updateTodo={updateTodo}
+            toggleComplete={toggleComplete}
         />
     </div>
   )
