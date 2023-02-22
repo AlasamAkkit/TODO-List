@@ -36,7 +36,6 @@ const handleSubmit = e => {
         onChange={handleChange}
         ref={inputRef}
         />
-        <button className="todo-button">add todo</button>
     </form>
   )
 }
