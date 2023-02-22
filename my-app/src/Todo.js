@@ -3,12 +3,16 @@ import TodoForm from './TodoForm';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
 
-function Todo({todos, completeTodo, removeTodo, updateTodo}) {
+function Todo({todos, completeTodo, removeTodo, updateTodo, toggleComplete}) {
 
     const[edit, setEdit] = useState({
         id: null,
         value: ""
     });
+
+    const handleToggleCompleted = (todo) => {
+        toggleComplete(todo.id);
+    }
 
     const submitUpdate = value => {
         updateTodo(edit.id, value) 
@@ -27,6 +31,12 @@ function Todo({todos, completeTodo, removeTodo, updateTodo}) {
             className={todo.isComplete ? "todo-row complete" : "todo-row"} 
             key={index}
         >
+            <input
+                type="checkbox"
+                checked={completeTodo}
+                onChange={handleToggleCompleted}
+            />
+            
             <div key={todo.id} onClick={() => completeTodo(todo.id)}>
                 {todo.text}
             </div>
