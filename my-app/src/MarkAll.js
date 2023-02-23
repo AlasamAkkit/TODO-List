@@ -1,17 +1,22 @@
-import React from 'react';
-import { FaCheck } from 'react-icons/fa';
+import React from 'react'
 
-function MarkAllDoneButton({ todos, setTodos }) {
-  const handleMarkAllDone = () => {
-    const updatedTodos = todos.map(todo => ({ ...todo, isComplete: true }));
-    setTodos(updatedTodos);
-  };
+function MarkAll({ todos, setTodos }) {
+    const handleMarkAllDone = () => {
+        const updatedTodos = todos.map((todo) => {
+            return { ...todo, completed: true };
+        });
+        setTodos(updatedTodos);
+    };
+
+    const allCompleted = todos.every((todo) => todo.completed);
 
   return (
-    <button onClick={handleMarkAllDone}>
-      <FaCheck />
-    </button>
+    <div>
+        <button onClick={handleMarkAllDone} disabled={allCompleted}>
+            Mark All Done
+        </button>
+    </div>
   );
 }
 
-export default MarkAllDoneButton;
+export default MarkAll;

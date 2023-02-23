@@ -5,18 +5,17 @@ function ClearCompleted({ todos, setTodos }) {
         setTodos(todos.filter((todo) => !todo.completed));
     };
 
-    const hasCompletedTodos = todos.some((todo) => todo.completed)
+    const hasCompletedTodos = todos.some((todo) => todo.completed);
 
   return (
-    <div>
-        <button
-            onClick={handleClearCompleted}
-            disabled={!hasCompletedTodos}
-        >
-            Clear Completed
-        </button>
+    <div className="clear-completed">
+        {hasCompletedTodos && (
+            <button className="clear-completed-button" onClick={handleClearCompleted}>
+                Clear completed
+            </button>
+        )}
     </div>
-  )
+  );
 }
 
-export default ClearCompleted
+export default ClearCompleted;
