@@ -1,26 +1,34 @@
 //filter bar: all, active, completed, Option to clear all completed tasks.
 
-import React, { useState } from 'react'
+import React from 'react'
 
-function FilterBar({ todos, setFilter, filter }) {
-    const [filterOptions] = useState(["All", "Active", "Completed"]);
+function FilterBar({ setFilter, filter }) {
 
     const handleFilterChange = (option) => {
         setFilter(option);
     };
 
   return (
-      <div>
-        {filterOptions.map((option, index) => (
-            <button
-                key={index}
-                onClick={() => handleFilterChange(option)}
-                disabled={filter === option}
-                className={filter === option ? "Active" : ""}
-            >
-                {option}
-            </button>
-        ))}
+      <div className="filter-bar">
+        <button
+            className={filter ==='All' ? 'Active' : ''}
+            onClick={() => handleFilterChange('All')}
+        >
+            All
+        </button>
+        <button
+            className={filter ==='Active' ? 'Active' : ''}
+            onClick={() => handleFilterChange('ACtive')}
+        >
+            Active
+        </button>
+        <button
+            className={filter ==='Completed' ? 'Active' : ''}
+            onClick={() => handleFilterChange('Completed')}
+        >
+            Completed
+        </button>
+        
       </div>
       )
 }
