@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import Header from "./components/Header";
+import Filters from "./components/Filters";
+import TodoList from "./components/TodoList";
+import Footer from "./components/Footer";
+
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -76,44 +81,29 @@ function App() {
   return (
     <div className="App">
       <h1>Todo List</h1>
-      <form onSubmit={handleAddTask}>
-        <input
-          type="text"
-          value={currentTask}
-          onChange={(e) => setCurrentTask(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && handleAddTask(e)}
-        />
-      </form>
-      <div>
-        <button onClick={() => handleFilterChange("All")}>All</button>
-        <button onClick={() => handleFilterChange("Active")}>Active</button>
-        <button onClick={() => handleFilterChange("Completed")}>
-          Completed
-        </button>
-      </div>
-      <ul>
-        {filteredTasks.map((task, index) => (
-          <li key={index} onDoubleClick={() => handleTaskDoubleClick(index)}>
-            <input
-              type="checkbox"
-              checked={task.completed}
-              onChange={() => handleToggleCompletion(index)}
-            />
-            {task.taskName}
-            <button onClick={() => handleDeleteTask(index)}>Delete</button>
-          </li>
-        ))}
-      </ul>
-      {completedTasks.length > 0 && (
-        <button onClick={handleClearCompleted}>Clear Completed</button>
-      )}
-      {tasks.length > 0 && (
-        <button onClick={handleCheckAll}>
-          {allChecked ? "Uncheck All" : "Check All"}
-        </button>
-      )}
-      
-      <p>{tasksLeft} tasks left</p>
+      <Header
+        handleAddTask={handleAddTask}
+        currentTask={currentTask}
+        setCurrentTask={setCurrentTask}
+      />
+
+      <Filters handleFilterChange={handleFilterChange} />
+
+      <TodoList 
+        filteredTasks={filteredTasks} 
+        handleDeleteTask={handleDeleteTask}
+        handleTaskDoubleClick={handleTaskDoubleClick}
+        handleToggleCompletion={handleToggleCompletion}
+      />
+
+      <Footer
+        handleClearCompleted={handleClearCompleted}
+        handleCheckAll={handleCheckAll}
+        allChecked={allChecked}
+        tasks={tasks}
+        tasksLeft={tasksLeft}
+        completedTasks={completedTasks}
+      />
     </div>
   );
 }
