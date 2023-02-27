@@ -80,7 +80,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Todo List</h1>
+      <h1>todos</h1>
       <Header
         handleAddTask={handleAddTask}
         currentTask={currentTask}

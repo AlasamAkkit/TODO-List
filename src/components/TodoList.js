@@ -12,7 +12,7 @@ function TodoList({filteredTasks, handleToggleCompletion, handleDeleteTask, hand
               onChange={() => handleToggleCompletion(index)}
             />
             {task.taskName}
-            <button onClick={() => handleDeleteTask(index)}>Delete</button>
+            <button onClick={() => handleDeleteTask(index)}>Del</button>
           </li>
         ))}
       </ul>

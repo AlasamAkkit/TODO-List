@@ -1,0 +1,153 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    margin-top: 0;
+  }
+  
+  form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  input[type="text"] {
+    font-size: 1.2rem;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    flex: 1;
+  }
+  
+  button {
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    color: #fff;
+    background-color: #007bff;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0069d9;
+  }
+  
+  button:active {
+    background-color: #0053a3;
+  }
+  
+  button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #007bff;
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  li input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+  
+  li button {
+    margin-left: auto;
+    padding: 0 0.2rem;
+    border-radius: 0.5rem;
+    border: none;
+    color: #fff;
+    background-color: #dc3545;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  
+  li button:hover {
+    background-color: #c82333;
+  }
+  
+  li button:active {
+    background-color: #9f1c24;
+  }
+  
+  .completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+  
+  .filter-buttons {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+  
+  .filter-buttons button {
+    margin-right: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .filter-buttons button:hover {
+    opacity: 0.8;
+  }
+  
+  .filter-buttons button.active {
+    background-color: #007bff;
+  }
+  
+  .clear-completed {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    color: #fff;
+    background-color: #dc3545;
+    cursor: pointer;
+  }
+  
+  .clear-completed:hover {
+    background-color: #c82333;
+  }
+  
+  .clear-completed:active {
+    background-color: #9f1c24;
+  }
+  
+  .check-all {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    color: #fff;
+    background-color: #007bff;
+    cursor: pointer;
+  }
+  
+  .check-all:hover {
+    background-color: #0069d9;
+  }
+  
+  .check-all:active {
+    background-color: #0053a3;
+  }
+  
+  .tasks-left {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  

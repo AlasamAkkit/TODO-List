@@ -12,7 +12,7 @@ function Footer({handleClearCompleted, handleCheckAll, allChecked, completedTask
         </button>
       )}
       
-      <p>{tasksLeft} tasks left</p>
+      <p>{tasksLeft} todos left</p>
     </div>
   )
 }
