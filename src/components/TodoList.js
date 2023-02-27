@@ -1,4 +1,5 @@
 import React from 'react'
+import { AiFillCloseCircle } from 'react-icons/ai'
 
 function TodoList({filteredTasks, handleToggleCompletion, handleDeleteTask, handleTaskDoubleClick}) {
   return (
@@ -12,7 +13,7 @@ function TodoList({filteredTasks, handleToggleCompletion, handleDeleteTask, hand
               onChange={() => handleToggleCompletion(index)}
             />
             {task.taskName}
-            <button onClick={() => handleDeleteTask(index)}>Del</button>
+            <button onClick={() => handleDeleteTask(index)}><AiFillCloseCircle /></button>
           </li>
         ))}
       </ul>

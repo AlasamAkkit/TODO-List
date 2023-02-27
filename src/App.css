@@ -66,13 +66,14 @@
   
   li button {
     margin-left: 0.5rem;
-    padding: 0 0.2rem;
-    border-radius: 0.5rem;
+    padding: 0;
+    padding-top: 0.2rem;
+    border-radius: 0.7rem;
     border: none;
-    color: #fff;
-    background-color: #dc3545;
+    color: red;
+    background-color: white;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 18px;
   }
   
   li button:hover {
