@@ -5,6 +5,7 @@ import { EDIT_TASK } from "./actionTypes";
 import { CLEAR_COMPLETED } from "./actionTypes";
 import { CHECK_ALL } from "./actionTypes";
 import { SET_FILTER } from "./actionTypes";
+import { SET_CURRENT_TASK } from "./actionTypes"
 
 export const addTask = (taskName) => {
     return {
@@ -12,6 +13,13 @@ export const addTask = (taskName) => {
         payload: taskName,
     };
 };
+
+export const setCurrentTask = (taskName) => {
+    return {
+        type: SET_CURRENT_TASK,
+        payload: taskName
+    }
+}
 
 export const deleteTask = (index) => {
     return {

@@ -18,6 +18,15 @@ const reducer = (state = initialState, action) => {
                 ],
                 currentTask: "",
             };
+
+        case "SET_CURRENT_TASK":
+            return {
+                ...state,
+                tasks: [
+                    ...state.task,
+                    { taskName: action.payload, completed: false},
+                ],
+            }
         
         case "DELETE_TASK":
             const newTasks = [...state.tasks];
