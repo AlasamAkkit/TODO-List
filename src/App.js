@@ -13,7 +13,6 @@ import {
   setFilter,
   clearCompleted,
   checkAll,
-  setCurrentTask
 } from "./actions"
 
 
@@ -24,7 +23,6 @@ function App() {
   const filter = useSelector((state) => state.filter);
   const allChecked = useSelector((state) => state.allChecked);
   const tasksLeft = useSelector((state) => state.tasksLeft);
-  const setTasks = useSelector((state) => state.setCurrentTask )
 
 
   const handleAddTask = (e) => {
@@ -33,13 +31,6 @@ function App() {
       dispatch(addTask({ taskName: currentTask, completed: false }));
     }
   };
-
-  const handleCurrentTask = (e) => {
-    e.preventDefault();
-    if (currentTask !== "") {
-      dispatch(setCurrentTask({ taskName: setTasks, completed: false }))
-    }
-  }
 
   const handleDeleteTask = (index) => {
     dispatch(deleteTask(index));
@@ -86,7 +77,7 @@ function App() {
   return (
     <div className="App">
       <h1>todos</h1>
-      <Header handleCurrentTask={handleCurrentTask} handleAddTask={handleAddTask} />
+      <Header handleAddTask={handleAddTask} />
 
       <Filters handleFilterChange={handleFilterChange} />
 

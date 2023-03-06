@@ -1,6 +1,14 @@
 import React from 'react'
+import { setCurrentTask } from '../actions'
+import { useDispatch } from 'react-redux'
 
-function Header({handleAddTask, currentTask, setCurrentTask}) {
+function Header({handleAddTask, currentTask}) {
+  const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    dispatch(setCurrentTask(e.target.value));
+  }
+
   return (
     <div>
         <form onSubmit={handleAddTask}>
@@ -8,7 +16,7 @@ function Header({handleAddTask, currentTask, setCurrentTask}) {
           type="text"
           placeholder="What needs to be done?"
           value={currentTask}
-          onChange={(e) => setCurrentTask(e.target.value)}
+          onChange={handleChange}
           onKeyDown={(e) => e.key === "Enter" && handleAddTask(e)}
         />
       </form>
