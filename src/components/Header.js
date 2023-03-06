@@ -1,12 +1,12 @@
 import React from 'react'
-import { setCurrentTask } from '../actions'
+import { addTask } from '../actions'
 import { useDispatch } from 'react-redux'
 
 function Header({handleAddTask, currentTask}) {
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
-    dispatch(setCurrentTask(e.target.value));
+    dispatch(addTask(e.target.value));
   }
 
   return (
