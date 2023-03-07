@@ -1,7 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 
-function Footer({handleClearCompleted, handleCheckAll, allChecked, completedTasks, tasks, tasksLeft}) {
+function Footer({handleClearCompleted, handleCheckAll, allChecked, completedTasks, tasks}) {
+  const tasksLeft = useSelector((state) => state.tasksLeft);
+
   return (
+    
     <div>
         {completedTasks.length > 0 && (
         <button onClick={handleClearCompleted}>Clear Completed</button>

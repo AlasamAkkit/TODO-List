@@ -6,7 +6,6 @@ import Filters from "./components/Filters";
 import TodoList from "./components/TodoList";
 import Footer from "./components/Footer";
 import {
-  addTask,
   deleteTask,
   toggleCompletion,
   editTask,
@@ -19,25 +18,16 @@ import {
 function App() {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.tasks);
-  const currentTask = useSelector((state) => state.currentTask);
   const filter = useSelector((state) => state.filter);
   const allChecked = useSelector((state) => state.allChecked);
-  const tasksLeft = useSelector((state) => state.tasksLeft);
-
-
-  const handleAddTask = (e) => {
-    e.preventDefault();
-    if (currentTask !== "") {
-      dispatch(addTask({ taskName: currentTask, completed: false }));
-    }
-  };
+ 
 
   const handleDeleteTask = (index) => {
     dispatch(deleteTask(index));
   };
 
   const handleToggleCompletion = (index) => {
-    dispatch(toggleCompletion(index));
+    dispatch(toggleCompletion({ index }));
   };
 
   const handleFilterChange = (newFilter) => {
@@ -77,7 +67,7 @@ function App() {
   return (
     <div className="App">
       <h1>todos</h1>
-      <Header handleAddTask={handleAddTask} />
+      <Header />
 
       <Filters handleFilterChange={handleFilterChange} />
 

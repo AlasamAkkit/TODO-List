@@ -4,6 +4,7 @@ const initialState = {
     filter: 'All',
     allChecked: false,
     tasksLeft: 0,
+    completed: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -16,6 +17,7 @@ const reducer = (state = initialState, action) => {
                     ...state.tasks,
                     { taskName: action.payload, completed: false },
                 ],
+                tasksLeft: state.tasksLeft + 1,
                 currentTask: "",
             };
 
@@ -34,6 +36,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 tasks: newTasks,
+                tasksLeft: state.tasksLeft - 1
             };
 
         case "SET_FILTER":
@@ -47,6 +50,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 tasks: clearedTasks,
+                tasksLeft: 0
             };
 
         case "EDIT_TASK":
@@ -55,6 +59,12 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 tasks: editedTasks
+            };
+
+        case "TOGGLE_COMPLETION":
+            return {
+                ...state,
+                completed: true
             };
 
         case "CHECK_ALL":

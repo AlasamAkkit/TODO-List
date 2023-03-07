@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { addTask } from '../actions'
 import { useDispatch } from 'react-redux'
 
@@ -8,7 +8,7 @@ function Header() {
   // we can create a state for current task for this component
   // to know when we should you redux store, 
   // and when should not, use state, you have to aware the component scope, relationships, interactions with this state
-  const [currentTask, setCurrentTask] = React.useState("");
+  const [currentTask, setCurrentTask] = useState("");
 
   const handleAddTask = (e) => {
     //add task to redux store
