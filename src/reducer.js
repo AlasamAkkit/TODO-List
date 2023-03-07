@@ -62,10 +62,20 @@ const reducer = (state = initialState, action) => {
             };
 
         case "TOGGLE_COMPLETION":
+            const updatedTasks = state.tasks.map((task, index) => {
+                if (index === action.payload) {
+                    return {
+                        ...task,
+                        completed: !task.completed,
+                    };
+                }
+                return task;
+            });
             return {
                 ...state,
-                completed: true
+                tasks: updatedTasks,
             };
+           
 
         case "CHECK_ALL":
             const checkTasks = [...state.tasks];

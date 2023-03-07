@@ -1,7 +1,16 @@
 import React from 'react'
 import { AiFillCloseCircle } from 'react-icons/ai'
+import { useDispatch } from 'react-redux'
+import { toggleCompletion } from '../actions'
 
-function TodoList({filteredTasks, handleToggleCompletion, handleDeleteTask, handleTaskDoubleClick}) {
+function TodoList({filteredTasks, handleDeleteTask, handleTaskDoubleClick}) {
+
+  const dispatch = useDispatch
+
+  const handleToggleCompletion = (index) => {
+    dispatch(toggleCompletion({ index }));
+  };
+
   return (
     <div>
         <ul>
