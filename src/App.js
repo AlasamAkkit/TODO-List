@@ -93,7 +93,6 @@ function App() {
         handleCheckAll={handleCheckAll}
         allChecked={allChecked}
         tasks={tasks}
-        tasksLeft={tasksLeft}
         completedTasks={completedTasks}
       />
     </div>
