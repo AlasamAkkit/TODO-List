@@ -5,7 +5,7 @@ import { toggleCompletion } from '../actions'
 
 function TodoList({filteredTasks, handleDeleteTask, handleTaskDoubleClick}) {
 
-  const dispatch = useDispatch
+  const dispatch = useDispatch()
 
   const handleToggleCompletion = (index) => {
     dispatch(toggleCompletion({ index }));
