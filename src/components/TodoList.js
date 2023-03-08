@@ -1,15 +1,22 @@
 import React from 'react'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { useDispatch } from 'react-redux'
-import { toggleCompletion } from '../actions'
+import { editTask, toggleCompletion } from '../actions'
 
-function TodoList({filteredTasks, handleDeleteTask, handleTaskDoubleClick}) {
+function TodoList({filteredTasks, handleDeleteTask}) {
 
   const dispatch = useDispatch()
 
   const handleToggleCompletion = (index) => {
-    dispatch(toggleCompletion({ index }));
+    dispatch(toggleCompletion(index));
   };
+
+  const handleTaskDoubleClick = (index) => {
+    const newTaskName = prompt('Enter new task name');
+    if (newTaskName) {
+      dispatch(editTask(index, newTaskName));
+    }
+  }
 
   return (
     <div>

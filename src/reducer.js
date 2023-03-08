@@ -47,10 +47,11 @@ const reducer = (state = initialState, action) => {
 
         case "CLEAR_COMPLETED":
             const clearedTasks = state.tasks.filter((task) => !task.completed);
+            const incompleteTasks = state.tasks.filter((task) => !task.completed)
             return {
                 ...state,
                 tasks: clearedTasks,
-                tasksLeft: 0
+                tasksLeft: incompleteTasks.length
             };
 
         case "EDIT_TASK":
